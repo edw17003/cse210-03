@@ -8,10 +8,10 @@ namespace Unit03.Game
     /// </summary>
     public class Director
     {
-        private Hider hider = new Hider();
+        private Jumper Jumper = new Jumper();
         private bool isPlaying = true;
-        private Seeker seeker = new Seeker();
-        private TerminalService terminalService = new TerminalService();
+        private Player Player = new Player();
+        private IO IO = new IO();
 
         /// <summary>
         /// Constructs a new instance of Director.
@@ -34,31 +34,31 @@ namespace Unit03.Game
         }
 
         /// <summary>
-        /// Moves the seeker to a new location.
+        /// Moves the Player to a new location.
         /// </summary>
         private void GetInputs()
         {
-            terminalService.WriteText(hider.location.ToString());
-            int location = terminalService.ReadNumber("\nEnter a location [1-1000]: ");
-            seeker.MoveLocation(location);
+            IO.WriteText(Jumper.location.ToString());
+            int location = IO.ReadNumber("\nEnter a location [1-1000]: ");
+            Player.MoveLocation(location);
         }
 
         /// <summary>
-        /// Keeps watch on where the seeker is moving.
+        /// Keeps watch on where the Player is moving.
         /// </summary>
         private void DoUpdates()
         {
-            hider.WatchSeeker(seeker);
+            Jumper.WatchPlayer(Player);
         }
 
         /// <summary>
-        /// Provides a hint for the seeker to use.
+        /// Provides a hint for the Player to use.
         /// </summary>
         private void DoOutputs()
         {
-            string hint = hider.GetHint();
-            terminalService.WriteText(hint);
-            if (hider.IsFound())
+            string hint = Jumper.GetHint();
+            IO.WriteText(hint);
+            if (Jumper.IsFound())
             {
                 isPlaying = false;
             }
