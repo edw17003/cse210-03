@@ -9,7 +9,10 @@ namespace Unit03.Game
         //string that holds an array of parachute values
         private string[] parachute = {"  ___   ", " /___\\  ", " \\   /  ", "  \\ /"};
         //constructor
-        public Jumper() {}
+        public Jumper() 
+        {
+
+        }
         //returns the parachute
         public string[] getParachute()
         {

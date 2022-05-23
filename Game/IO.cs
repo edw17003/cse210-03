@@ -25,7 +25,7 @@ namespace Unit03.Game
 
         public void displayParachute()
         {
-            string[] parachute = Jumper.Parachute();
+            string[] parachute = Jumper.getParachute();
             foreach (string item in parachute)
             {
                 System.Console.WriteLine(item);
