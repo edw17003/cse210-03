@@ -4,8 +4,11 @@ namespace Unit03.Game
 {
     public class Player
     {
+        // Initialize variable word to hold the word the user will be attempting to guess
         private string word;
+        // Initialize outputString with a size of 14 characters (max number of letters a word in our list has)
         private char[] outputString = new char[14];
+        // Initialize the list that we can generate a random word from
         private string[] wordList = {
             "ability",
             "able",
@@ -880,26 +883,32 @@ namespace Unit03.Game
             "yourself",
         };
 
+        // Create a new random object for use in generating a random word from our list
         Random random = new Random();
         public Player()
         {
+            // When the Player is constructed, change the stored word to a random word from our list
             this.word = wordList[random.Next(wordList.Length)];
+            // For each character in the word, create the outputString containing underscores
             for (int i=0; i< this.word.Length; i++) {
                 outputString[i] = '_';
             }
         }
+        // Gets the current outputString
         public char[] getOutputString() {
             return outputString;
         }
+        // Applies a guess to the outputString, changing it where necessary
         public void applyGuess(char guess) {
-            int i = 0;
-            foreach (char character in this.word)
-            {
+            for (var i=0; i<outputString.Length; i++) {
+                foreach (char character in this.word)
+                {
+                    // If the guess is equal to the current character, change the outputString at that index to the correct character
 
-                if (guess == character) {
-                    outputString[i] = character;
+                    if (guess == character) {
+                        outputString[i] = character;
+                    }
                 }
-                i++;
             }
         }
 
