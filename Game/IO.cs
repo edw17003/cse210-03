@@ -5,28 +5,44 @@ namespace Unit03.Game
 
     public class IO
     {
-        private Jumper Jumper = new Jumper();
-
         public IO()
         {
         }
 
-        public string ReadText()
+        public char ReadText()
         {
-            System.Console.Write("F to remove row, T to keep row: ");
-            String isCorrect = System.Console.ReadLine();
-            return isCorrect;
+            System.Console.Write("Enter a guess: ");
+            string isCorrect = System.Console.ReadLine();
+            return isCorrect[0];
         }
 
         public void WriteText(string text)
         {
             Console.WriteLine(text);
+
         }
 
-        public void displayParachute()
+        public void WriteWord(char[] word)
         {
-            string[] parachute = Jumper.getParachute();
+            foreach (char i in word)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+        public void displayParachute(string[] parachute)
+        {
             foreach (string item in parachute)
+            {
+                System.Console.WriteLine(item);
+            }
+        }
+
+        public void displayJumper(string[] jumper)
+        {
+            foreach (string item in jumper)
             {
                 System.Console.WriteLine(item);
             }

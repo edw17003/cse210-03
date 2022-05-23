@@ -899,18 +899,15 @@ namespace Unit03.Game
             return outputString;
         }
         // Applies a guess to the outputString, changing it where necessary
-        public void applyGuess(char guess) {
-            for (var i=0; i<outputString.Length; i++) {
-                foreach (char character in this.word)
-                {
-                    // If the guess is equal to the current character, change the outputString at that index to the correct character
-
-                    if (guess == character) {
-                        outputString[i] = character;
-                    }
+        public bool applyGuess(char guess) {
+            bool isCorrect = false;
+            for (var i=0; i<word.Length; i++) {
+                if (guess == this.word[i]) {
+                    outputString[i] = guess;
+                    isCorrect = true;
                 }
             }
+            return isCorrect;
         }
-
     }
 }

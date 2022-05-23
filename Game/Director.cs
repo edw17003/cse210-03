@@ -5,9 +5,10 @@ namespace Unit03.Game
     {
         string isCorrect = "Y";
         private bool isPlaying = true;
-        private Player Player = new Player();
+        private Player player = new Player();
+        private Jumper jumper = new Jumper();
         private IO IO = new IO();
-        string[] parachute = {"  ___   ", " /___\\  ", " \\   /  ", "  \\ /",};
+        private char guess;
 
 
         public Director()
@@ -28,23 +29,29 @@ namespace Unit03.Game
 
         private void GetInputs()
         {
-            isCorrect = IO.ReadText();
+            guess = IO.ReadText();
         }
 
 
         private void DoUpdates()
         {
-            if (isCorrect == "N")
+            if (!player.applyGuess(guess))
             {
-                // Jumper.BreakParachute(parachute);
+                jumper.breakParachute();
+                jumper.setJumper();
+            }
+            if (jumper.isDead())
+            {
+                isPlaying = false;
             }
         }
 
 
         private void DoOutputs()
         {
-            IO.displayParachute();
-            isPlaying = false;
+            IO.WriteWord(player.getOutputString());
+            IO.displayParachute(jumper.getParachute());
+            IO.displayJumper(jumper.getJumper());
         }
     }
 }
