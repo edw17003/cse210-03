@@ -3,7 +3,6 @@ namespace Unit03.Game
 
     public class Director
     {
-        string isCorrect = "Y";
         private bool isPlaying = true;
         private Player player = new Player();
         private Jumper jumper = new Jumper();

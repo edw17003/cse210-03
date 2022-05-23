@@ -812,7 +812,7 @@ namespace Unit03.Game
             "trial",
             "trip",
             "trouble",
-            "TRUE",
+            "true",
             "truth",
             "turn",
             "type",
