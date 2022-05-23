@@ -8,7 +8,7 @@ namespace Unit03.Game
     {
         //string that holds an array of parachute values
         private string[] parachute = {"  ___   ", " /___\\  ", " \\   /  ", "  \\ /"};
-        private string[] jumper = {"  o", " /|\\", " /  \\"};
+        private string[] jumper = {"  o", " /|\\", "/  \\"};
         //constructor
         public Jumper() 
         {
@@ -24,10 +24,12 @@ namespace Unit03.Game
         {
             this.parachute = parachute.Skip(1).ToArray();
         }
+        //returns the jumper string
         public string[] getJumper()
         {
             return this.jumper;
         }
+        //sets the jumper string
         public void setJumper()
         {
             if (isDead())
@@ -35,7 +37,7 @@ namespace Unit03.Game
                 this.jumper[0] = "  x";
             }
         }
-
+        //checks if parachute is gone
         public bool isDead()
         {
             if (this.parachute.Count() > 0) 
