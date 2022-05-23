@@ -3,10 +3,11 @@ namespace Unit03.Game
 
     public class Director
     {
-        private Jumper Jumper = new Jumper();
+        string isCorrect = "Y";
         private bool isPlaying = true;
         private Player Player = new Player();
         private IO IO = new IO();
+        string[] parachute = {"  ___   ", " /___\\  ", " \\   /  ", "  \\ /",};
 
 
         public Director()
@@ -27,19 +28,23 @@ namespace Unit03.Game
 
         private void GetInputs()
         {
-
+            isCorrect = IO.ReadText();
         }
 
 
         private void DoUpdates()
         {
-
+            if (isCorrect == "N")
+            {
+                // Jumper.BreakParachute(parachute);
+            }
         }
 
 
         private void DoOutputs()
         {
-            
+            IO.displayParachute();
+            isPlaying = false;
         }
     }
 }
