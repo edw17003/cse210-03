@@ -36,7 +36,7 @@ namespace Unit03.Game
             }
         }
 
-        private bool isDead()
+        public bool isDead()
         {
             if (this.parachute.Count() > 0) 
             {
