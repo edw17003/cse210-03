@@ -11,8 +11,8 @@ namespace Unit03.Game
 
         public char ReadText()
         {
-            System.Console.Write("Enter a guess: ");
-            string isCorrect = System.Console.ReadLine();
+            System.Console.Write("Guess a letter: ");
+            string isCorrect = System.Console.ReadLine().ToLower();
             return isCorrect[0];
         }
 
@@ -46,6 +46,9 @@ namespace Unit03.Game
             {
                 System.Console.WriteLine(item);
             }
+        }
+        public void clearLine() {
+            Console.Clear();
         }
     }
 }

@@ -17,6 +17,8 @@ namespace Unit03.Game
 
         public void StartGame()
         {
+            IO.clearLine();
+            DoOutputs();
             while (isPlaying)
             {
                 GetInputs();
@@ -41,7 +43,14 @@ namespace Unit03.Game
             }
             if (jumper.isDead())
             {
+                IO.clearLine();
+                IO.WriteText($"Unfortunately, you didn't guess the word.\nThe word was: \"{player.getWord()}\"");
                 isPlaying = false;
+            } else {IO.clearLine();
+            }
+            if (player.detectWin()) {
+                isPlaying = false;
+                IO.WriteText("Congratulations! You found the word!");
             }
         }
 

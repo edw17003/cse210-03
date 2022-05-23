@@ -888,7 +888,7 @@ namespace Unit03.Game
         public Player()
         {
             // When the Player is constructed, change the stored word to a random word from our list
-            this.word = wordList[random.Next(wordList.Length)];
+            this.word = wordList[random.Next(wordList.Length)].ToLower();
             // For each character in the word, create the outputString containing underscores
             for (int i=0; i< this.word.Length; i++) {
                 outputString[i] = '_';
@@ -908,6 +908,18 @@ namespace Unit03.Game
                 }
             }
             return isCorrect;
+        }
+        public bool detectWin() {
+            bool detectedDifference = false;
+            for (var i=0; i<word.Length; i++) {
+                if (outputString[i] != word[i]) {
+                    detectedDifference = true;
+                }
+            }
+            return !detectedDifference;
+        }
+        public string getWord() {
+            return word;
         }
     }
 }
