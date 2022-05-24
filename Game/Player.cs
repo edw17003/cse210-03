@@ -909,6 +909,7 @@ namespace Unit03.Game
             }
             return isCorrect;
         }
+        // Looks for differences between this.word and the output string, then returns a bool representing the status
         public bool detectWin() {
             bool detectedDifference = false;
             for (var i=0; i<word.Length; i++) {
@@ -918,6 +919,7 @@ namespace Unit03.Game
             }
             return !detectedDifference;
         }
+        // Returns the word to be guessed
         public string getWord() {
             return word;
         }
