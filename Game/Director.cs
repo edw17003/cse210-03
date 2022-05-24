@@ -33,6 +33,7 @@ namespace Unit03.Game
             guess = IO.ReadText();
         }
 
+        // Does operations in the background using the input in order to prepare the output
         private void DoUpdates()
         {
             // If the guess is false, breaks the parachute and displays the jumper

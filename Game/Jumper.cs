@@ -27,7 +27,7 @@ namespace Unit03.Game
         {
             return this.jumper;
         }
-        //sets the jumper string
+        //sets the jumper string if the player loses
         public void setJumper()
         {
             if (isDead())

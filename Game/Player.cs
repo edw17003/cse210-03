@@ -885,6 +885,7 @@ namespace Unit03.Game
 
         // Create a new random object for use in generating a random word from our list
         Random random = new Random();
+        // Constructor
         public Player()
         {
             // When the Player is constructed, change the stored word to a random word from our list
